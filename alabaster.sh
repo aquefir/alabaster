@@ -16,6 +16,20 @@ apt-get -qq install -y sudo git feh lz4 lzip lightdm openbox terminator \
 	gmrun thunar tint2 emacs-nox;
 /bin/echo 'done.'
 
+/bin/echo -n 'Downloading dotfiles... ';
+cd /tmp;
+git clone https://github.com/nicholatian/dotfiles.git dotfiles;
+/bin/echo 'done.';
+/bin/echo -n 'Installing dotfiles system-wide... ';
+cd dotfiles;
+sudo ./install.sh /root;
+sudo ./install.sh /etc/skel;
+/bin/echo -n 'and for current user... ';
+sudo ./install.sh ~;
+cd ..;
+rm -rf dotfiles;
+/bin/echo 'done.';
+
 /bin/echo -n 'Downloading and unpacking distro data... ';
 # tar will unpack these into the system root
 cd /;
