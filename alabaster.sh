@@ -12,20 +12,21 @@ cd; # start at home
 
 /bin/echo 'done.';
 /bin/echo -n 'Installing packages with apt... ';
+DEBIAN_FRONTEND=noninteractive;
 apt-get -qq install -qqy sudo git feh lz4 lzip lightdm openbox terminator \
-	gmrun thunar tint2 emacs-nox;
+	gmrun thunar tint2 emacs-nox 2>&1 >/dev/null;
 /bin/echo 'done.'
 
 /bin/echo -n 'Downloading dotfiles... ';
 cd /tmp;
-git clone https://github.com/nicholatian/dotfiles.git dotfiles;
+git clone https://github.com/nicholatian/dotfiles.git dotfiles --quiet;
 /bin/echo 'done.';
 /bin/echo -n 'Installing dotfiles system-wide... ';
 cd dotfiles;
-sudo ./install.sh /root;
-sudo ./install.sh /etc/skel;
+sudo ./install.sh /root 2>&1 >/dev/null;
+sudo ./install.sh /etc/skel 2>&1 >/dev/null;
 /bin/echo -n 'and for current user... ';
-sudo ./install.sh ~;
+sudo ./install.sh ~ 2>&1 >/dev/null;
 cd ..;
 rm -rf dotfiles;
 /bin/echo 'done.';
