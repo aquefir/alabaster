@@ -10,7 +10,7 @@ Developing and maintaining Alabaster as a ‘proper’ Linux distribution is mor
 
 ## Setup
 
-Install Debian wherever you like using the `netinst` ISO. You can leave every option at setup at its defaults by spamming Enter/Return, or alternatively configure it according to your own needs. You need not need to select any additional `apt` packages at the prompt besides ‘standard system utilities’, which is already selected by default.
+Install Debian wherever you like using the `netinst` ISO. Make sure to select the normal ‘install’ option, not graphical or other advanced installs. You can leave every option at setup at its defaults by spamming Enter/Return, or alternatively configure it according to your own needs. You need not need to select any additional `apt` packages at the prompt besides ‘standard system utilities’, which is already selected by default.
 
 Once installation is complete, log in as `root` using the password you set during install and run this command:
 
