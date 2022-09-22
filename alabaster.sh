@@ -4,6 +4,10 @@
 if test "$(id -u)" -ne 0; then
 	/bin/echo 'This script must be run as root. Exiting...';
 	exit 127;
+elif test "$SUDO_USER" != ''; then
+	/bin/echo 'This script cannot be run with sudo.';
+	/bin/echo 'Please log in as root and try again. Exiting...';
+	exit 127;
 fi
 
 /bin/echo 'Welcome to the Alabaster install script!';
