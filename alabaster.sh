@@ -12,7 +12,7 @@ cd; # start at home
 
 /bin/echo 'done.';
 /bin/echo -n 'Installing packages with apt... ';
-apt-get -qq install -y sudo git feh lz4 lzip lightdm openbox terminator \
+apt-get -qq install -qqy sudo git feh lz4 lzip lightdm openbox terminator \
 	gmrun thunar tint2 emacs-nox;
 /bin/echo 'done.'
 
