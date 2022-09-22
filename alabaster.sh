@@ -11,11 +11,11 @@ fi
 cd; # start at home
 
 /bin/echo 'done.';
-/bin/echo -n 'Installing packages with apt... ';
+/bin/echo 'Installing packages with apt-get...';
 DEBIAN_FRONTEND=noninteractive;
 apt-get -qq install -qqy sudo git feh lz4 lzip plzip lightdm openbox \
 	terminator gmrun thunar tint2 emacs-nox 2>&1 >/dev/null;
-/bin/echo 'done.'
+/bin/echo 'apt-get done.';
 
 /bin/echo -n 'Downloading dotfiles... ';
 cd /tmp;
