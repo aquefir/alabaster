@@ -28,6 +28,7 @@ sudo ./install.sh /etc/skel 2>&1 >/dev/null;
 /bin/echo -n 'and for existing users... ';
 for d in $(ls -1 /home); do
 	sudo ./install.sh "/home/$d" 2>&1 >/dev/null;
+	sudo chown -R "$d":"$d" "/home/$d";
 done;
 cd ..;
 rm -rf dotfiles;
