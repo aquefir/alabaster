@@ -25,8 +25,10 @@ git clone https://github.com/nicholatian/dotfiles.git dotfiles --quiet;
 cd dotfiles;
 sudo ./install.sh /root 2>&1 >/dev/null;
 sudo ./install.sh /etc/skel 2>&1 >/dev/null;
-/bin/echo -n 'and for current user... ';
-sudo ./install.sh ~ 2>&1 >/dev/null;
+/bin/echo -n 'and for existing users... ';
+for $d in $(ls -1 /home); do
+	sudo ./install.sh "/home/$d" 2>&1 >/dev/null;
+done;
 cd ..;
 rm -rf dotfiles;
 /bin/echo 'done.';
