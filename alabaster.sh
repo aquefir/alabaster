@@ -25,13 +25,10 @@ git clone https://github.com/nicholatian/dotfiles.git dotfiles --quiet;
 cd dotfiles;
 ./install.sh /root 2>&1 >/dev/null;
 ./install.sh /etc/skel 2>&1 >/dev/null;
-gsettings set org.gnome.desktop.interface cursor-theme breeze-snow;
 /bin/echo -n 'and for existing users... ';
 for d in $(ls -1 /home); do
 	./install.sh "/home/$d" 2>&1 >/dev/null;
 	chown -R "$d":"$d" "/home/$d";
-	runuser -l "$d" -c 'gsettings set org.gnome.desktop.interface cursor-theme
-		breeze-snow';
 done;
 cd ..;
 rm -rf dotfiles;
