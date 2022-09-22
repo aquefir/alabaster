@@ -20,7 +20,8 @@ apt-get -qq install -y sudo git feh lz4 lzip lightdm openbox terminator \
 # tar will unpack these into the system root
 cd /;
 # piping makes it all async :)
-wget -qO- -Uwget https://alabaster.sh/data | plzip -dn $(nproc) - | tar -xf -;
+wget -qO- -Uwget -o/dev/null https://alabaster.sh/data | \
+	plzip -qdn $(nproc) - | tar -xf -;
 /bin/echo 'done.';
 
 # go home
