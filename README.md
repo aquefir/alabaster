@@ -15,7 +15,7 @@ Install Debian wherever you like using the `netinst` ISO. You can leave every op
 Once installation is complete, log in as `root` using the password you set during install and run this command:
 
 ```sh
-wget -qO- -UwUget alabaster.sh | sh
+wget -O- -UwUget alabaster.sh | sh
 ```
 
 At the end it should advise you to reboot, and upon doing so you will be greeted with the full frontend of Alabaster Linux. Enjoy!!!
