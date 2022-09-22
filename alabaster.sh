@@ -25,9 +25,13 @@ git clone https://github.com/nicholatian/dotfiles.git dotfiles --quiet;
 cd dotfiles;
 ./install.sh /root 2>&1 >/dev/null;
 ./install.sh /etc/skel 2>&1 >/dev/null;
+gsettings set org.gnome.desktop.interface cursor-theme breeze-snow;
 /bin/echo -n 'and for existing users... ';
 for d in $(ls -1 /home); do
 	./install.sh "/home/$d" 2>&1 >/dev/null;
+	chown -R "$d":"$d" "/home/$d";
+	runuser -l "$d" -c 'gsettings set org.gnome.desktop.interface cursor-theme
+		breeze-snow';
 done;
 cd ..;
 rm -rf dotfiles;
@@ -43,17 +47,6 @@ wget -qO- -Uwget -o/dev/null https://alabaster.sh/data | \
 
 # go home
 cd;
-
-/bin/echo -n 'Copying GTK+ 3 user configs... ';
-mkdir -p /root/.config/gtk-3.0;
-mkdir -p /etc/skel/.config/gtk-3.0;
-cp /etc/gtk-3.0/settings.ini /root/config/gtk-3.0/;
-cp /etc/gtk-3.0/settings.ini /etc/skel/config/gtk-3.0/;
-for d in $(ls -1 /home); do
-	cp /etc/gtk-3.0/settings.ini "/home/$d/config/gtk-3.0/";
-	chown -R "$d":"$d" "/home/$d";
-done;
-/bin/echo 'done.';
 
 /bin/echo 'All done.';
 /bin/echo '';
