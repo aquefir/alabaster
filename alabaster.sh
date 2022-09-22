@@ -23,12 +23,11 @@ git clone https://github.com/nicholatian/dotfiles.git dotfiles --quiet;
 /bin/echo 'done.';
 /bin/echo -n 'Installing dotfiles system-wide... ';
 cd dotfiles;
-sudo ./install.sh /root 2>&1 >/dev/null;
-sudo ./install.sh /etc/skel 2>&1 >/dev/null;
+./install.sh /root 2>&1 >/dev/null;
+./install.sh /etc/skel 2>&1 >/dev/null;
 /bin/echo -n 'and for existing users... ';
 for d in $(ls -1 /home); do
-	sudo ./install.sh "/home/$d" 2>&1 >/dev/null;
-	sudo chown -R "$d":"$d" "/home/$d";
+	./install.sh "/home/$d" 2>&1 >/dev/null;
 done;
 cd ..;
 rm -rf dotfiles;
@@ -44,6 +43,17 @@ wget -qO- -Uwget -o/dev/null https://alabaster.sh/data | \
 
 # go home
 cd;
+
+/bin/echo -n 'Copying GTK+ 3 user configs... ';
+mkdir -p /root/.config/gtk-3.0;
+mkdir -p /etc/skel/.config/gtk-3.0;
+cp /etc/gtk-3.0/settings.ini /root/config/gtk-3.0/;
+cp /etc/gtk-3.0/settings.ini /etc/skel/config/gtk-3.0/;
+for d in $(ls -1 /home); do
+	cp /etc/gtk-3.0/settings.ini "/home/$d/config/gtk-3.0/";
+	chown -R "$d":"$d" "/home/$d";
+done;
+/bin/echo 'done.';
 
 /bin/echo 'All done.';
 /bin/echo '';
