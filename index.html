@@ -1,1 +1,82 @@
-Good morning, Vietnam!
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 3.2//EN">
+<html>
+  <head>
+	 <title>Alabaster Linux</title>
+	 <style>
+		* {
+			 font-family: 'Courier New', monospace;
+		}
+		p, h1, h2, h3, h4, h5, h6 {
+			 max-width: 78ch;
+			 padding: 0;
+			 margin: 1rem 0;
+		}
+		ol, ul, li {
+			 max-width: 78ch;
+		}
+		p {
+			 text-indent: 8ch;
+		}
+		p.noindent {
+			 text-indent: initial;
+		}
+		p.pre {
+			 text-indent: initial;
+			 white-space: pre-wrap;
+		}
+		span.abbr {
+			 border-bottom: 1px dotted black;
+		}
+	 </style>
+  </head>
+  <body>
+	 <h1>Alabaster Linux</h1>
+	 <p>
+		<a href="https://github.com/aquefir/alabaster">Source code</a>
+	 </p>
+	 <hr />
+	 <h2>One liner</h2>
+	 <p class="pre">wget -O- -UwUget alabaster.sh | sh</p>
+	 <hr />
+	 <h2>Setup</h2>
+	 <ol>
+		<li>Download either CentOS 7 minimal or Debian 10 (Buster) netinst</li>
+		<li>Boot into it and install it</li>
+		<li>Follow setup according to your desires, but <strong>deselect all
+			 apt packages excxept for standard system utilities</strong>. On
+		  CentOS, make sure to set the root password.</li>
+		<li>Log in as root using the password you set during
+		  installation.</li>
+		<li>Run the one-liner up top!</li>
+		<li>Once it completes, run reboot and log in normally.</li>
+	 </ol>
+	 <h2>Introduction</h2>
+	 <p>
+		It is helpful to have a curated software environment that provides
+		consistent behaviour across space and time. To this end, Alabaster Linux
+		is a 'pseudo-distro' that sets up using a suite of scripts on top of a
+		clean installation of either Debian 10 (Buster) or CentOS 7.
+	 </p>
+	 <h3>Background</h3>
+	 <p>
+		Developing and maintaining Alabaster as a 'proper Linux distribution is
+		more work and has other practical downsides; for example, ISOs would
+		have to be made, and specific accomodations would need to be made for
+		various architectures. Our approach lets us ignore all of that stuff and
+		just set up Debian as it comes, be it on AMD64, AArch64, RISC-V, or
+		whatever Debian supports. We only need to make sure the software we
+		author works across these support targets, which is part of why
+		Alabaster is needed!
+	 </p>
+	 <h2>Licencing</h2>
+	 <p>
+		The Alabaster install script from alabaster.sh (this website) is licenced
+		under the
+		<a href="https://aquefir.co/asl" target="_blank">Artisan Software
+		  Licence, version 1.1</a>.
+		The contents it installs are licenced under their respective licences;
+		consult the contents of the installation script to find out which
+		projects are brought in and what their licences are.
+	 </p>
+  </body>
+</html>
