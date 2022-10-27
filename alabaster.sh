@@ -266,7 +266,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring file manager defaults... ';
 	mkdir -p /etc/xdg/Thunar;
-	/bin/echo ' <?xml version="1.0" encoding="UTF-8"?><actions><action><icon>utilities-terminal</icon><name>Open terminal here</name><unique-id>1663722866309645-2</unique-id><command>terminator --working-directory="%f"</command><description>Opens a terminal session in the opened folder.</description><pattersn>*</patterns><startup-notify/><directories/></action></actions>' > /etc/xdg/Thunar/uca.xml;
+#	/bin/echo '<?xml version="1.0" encoding="UTF-8"?><actions><action><icon>utilities-terminal</icon><name>Open terminal here</name><unique-id>1663722866309645-2</unique-id><command>terminator --working-directory="%f"</command><description>Opens a terminal session in the opened folder.</description><pattersn>*</patterns><startup-notify/><directories/></action></actions>' > /etc/xdg/Thunar/uca.xml;
 	/bin/echo 'done.';
 	## this file is "tint2rc.gz" in base64
 	/bin/echo -n 'Configuring tint2 defaults... ';
