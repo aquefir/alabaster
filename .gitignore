@@ -1,0 +1,32 @@
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+## Emacs ignores
+*~
+\#*\#
+.\#*
+*.bak
+
+# HexChat logs and scrollback
+src/config/hexchat/logs/
+src/config/hexchat/scrollback/
+
+# Ignore Discord
+src/config/discord*
+
+# Ignore Atom and GIMP
+src/config/[Aa]tom*
+src/config/GIMP*
+src/config/hexchat/servlist.conf
