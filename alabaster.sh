@@ -17,10 +17,12 @@ cd; # start at home
 /bin/echo 'done.';
 
 if uname -a | grep -q '.el7.'; then
+	/bin/echo -n 'Installing dependencies with yum... ';
 	yum install wget autoconf automake binutils bison flex gcc gcc-c++ gettext \
 		 libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
 		 gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip \
-		2>&1 >/dev/null;
+		 2>&1 >/dev/null;
+	/bin/echo 'done.';
 elif uname -a | grep -q ' Debian ' && lsb_release -d | grep -q '(buster)'; then
 	/bin/echo 'Installing packages with apt-get...';
 	DEBIAN_FRONTEND=noninteractive;
@@ -264,7 +266,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring file manager defaults... ';
 	mkdir -p /etc/xdg/Thunar;
-	/bin/echo -e '<?xml version="1.0" encoding="UTF-8"?><actions><action><icon>utilities-terminal</icon><name>Open terminal here</name><unique-id>1663722866309645-2</unique-id><command>terminator --working-directory="%f"</command><description>Opens a terminal session in the opened folder.</description><pattersn>*</patterns><startup-notify/><directories/></action></actions>' > /etc/xdg/Thunar/uca.xml;
+	/bin/echo '<?xml version="1.0" encoding="UTF-8"?><actions><action><icon>utilities-terminal</icon><name>Open terminal here</name><unique-id>1663722866309645-2</unique-id><command>terminator --working-directory="%f"</command><description>Opens a terminal session in the opened folder.</description><pattersn>*</patterns><startup-notify/><directories/></action></actions>' > /etc/xdg/Thunar/uca.xml;
 	/bin/echo 'done.';
 	## this file is "tint2rc.gz" in base64
 	/bin/echo -n 'Configuring tint2 defaults... ';
