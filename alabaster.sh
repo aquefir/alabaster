@@ -12,7 +12,7 @@ fi
 
 /bin/echo 'Welcome to the Alabaster install script!';
 /bin/echo -n 'Getting bearings... ';
-cd; # start at home
+cd || exit 127; # start at home
 
 /bin/echo 'done.';
 
@@ -21,16 +21,16 @@ if uname -a | grep -q '.el7.'; then
 	yum install wget autoconf automake binutils bison flex gcc gcc-c++ gettext \
 		 libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
 		 gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip \
-		 2>&1 >/dev/null;
+		 1>/dev/null 2>&1;
 	/bin/echo 'done.';
 elif uname -a | grep -q ' Debian ' && lsb_release -d | grep -q '(buster)'; then
 	/bin/echo 'Installing packages with apt-get...';
-	DEBIAN_FRONTEND=noninteractive;
+	export DEBIAN_FRONTEND=noninteractive;
 	apt-get -qq install -qqy sudo feh lz4 lightdm openbox terminator gmrun \
 			  thunar tint2 emacs-nox build-essential bison flex dh-autoreconf \
 			  libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev \
 			  asciidoc xmlto docbook2x install-info curl zip unzip \
-			  2>&1 >/dev/null;
+			  1>/dev/null 2>&1;
 	/bin/echo 'apt-get done.';
 else
 	/bin/echo 'Unsupported version of UNIX.';
@@ -48,21 +48,21 @@ wget -qOgit.tar.gz -o/dev/null \
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf git.tar.gz;
-pushd git-* >/dev/null;
+pushd git-* 1>/dev/null || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
-make configure 2>&1 >/dev/null;
+make configure 1>/dev/null 2>&1;
 ./configure --with-libpcre2 --with-editor=emacs --without-tcltk \
-				2>&1 >/dev/null;
+				1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n "Building with job control ($(nproc) threads)... ";
-make -j"$(nproc)" 2>&1 >/dev/null;
+make -j"$(nproc)" 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Installing git... ';
-make install 2>&1 >/dev/null;
+make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd >/dev/null;
+popd 1>/dev/null || exit 127;
 rm -rf git.tar.gz git-*;
 /bin/echo 'done.';
 
@@ -74,19 +74,19 @@ wget -qOlzlib.tar.gz -o/dev/null \
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf lzlib.tar.gz;
-pushd lzlib-* >/dev/null;
+pushd lzlib-* 1>/dev/null || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
-./configure 2>&1 >/dev/null;
+./configure 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n "Building with job control ($(nproc) threads)... ";
-make -j$(nproc) 2>&1 >/dev/null;
+make -j"$(nproc)" 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Installing lzlib... ';
-make install 2>&1 >/dev/null;
+make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd >/dev/null;
+popd 1>/dev/null || exit 127;
 rm -rf lzlib.tar.gz lzlib-*;
 /bin/echo 'done.';
 
@@ -98,19 +98,19 @@ wget -qOplzip.tar.gz -o/dev/null \
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf plzip.tar.gz;
-pushd plzip-* >/dev/null;
+pushd plzip-* 1>/dev/null || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
-./configure 2>&1 >/dev/null;
+./configure 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n "Building with job control ($(nproc) threads)... ";
-make -j$(nproc) 2>&1 >/dev/null;
+make -j"$(nproc)" 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Installing plzip... ';
-make install 2>&1 >/dev/null;
+make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd >/dev/null;
+popd 1>/dev/null || exit 127;
 rm -rf plzip.tar.gz plzip-*;
 /bin/echo 'done.';
 
@@ -122,19 +122,19 @@ wget -qOtarlz.tar.lz -o/dev/null \
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 plzip -cd tarlz.tar.lz | tar -xf -;
-pushd tarlz-* >/dev/null;
+pushd tarlz-* 1>/dev/null || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
-./configure 2>&1 >/dev/null;
+./configure 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n "Building with job control ($(nproc) threads)... ";
-make -j$(nproc) 2>&1 >/dev/null;
+make -j"$(nproc)" 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Installing tarlz... ';
-make install 2>&1 >/dev/null;
+make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd >/dev/null;
+popd 1>/dev/null || exit 127;
 rm -rf tarlz.tar.lz tarlz-*;
 /bin/echo 'Done.';
 
@@ -199,21 +199,21 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -n 'Installing SkeuOS GTK+ theme... ';
 	mkdir -p /usr/local/share/themes;
 	tar -xf skeuos.tar.gz;
-	pushd skeuos-* >/dev/null;
+	pushd skeuos-* 1>/dev/null || exit 127;
 	cp -r themes/Skeuos-Grey-Dark /usr/local/share/themes/skeuos-grey-dark;
 	cp -r themes/Skeuos-Grey-Dark-GNOME_40+41/gnome-shell \
 		/usr/local/share/themes/skeuos-grey-dark/gnome-shell;
 	cp -r themes/Skeuos-Grey-Dark-FullPanel-GNOME_40+41 \
 		/usr/local/share/themes/skeuos-grey-dark-fullpanel;
-	popd >/dev/null;
+	popd 1>/dev/null || exit 127;
 	/bin/echo 'done.';
 	/bin/echo -n 'Extracting Fumaca 2.0 Openbox theme... ';
 	mkdir -p /usr/local/share/themes;
-	pushd /usr/local/share/themes >/dev/null;
+	pushd /usr/local/share/themes 1>/dev/null || exit 127;
 	/bin/echo 'H4sICMQvWmMCAGZ1bWFjYTIudGFyAO1ZXc+TMBTmVn5FE2800dlCoXPGxG9vNDF6aYwpULZqgQU6nTH+d6GARcBVjTYm9lnSF3qefvCe85y2kJ8KmtLglvcXASGGhBAP9pj/VdcIh0GMAxLHqK0nIY48EHkWcGokrdshvf8To/+rIyuT6nwzXEaCff8jhCLi/G8DS/8nJyGY3JyT4o/5H8GL/kcEeSgMURREmERhy++uPbDqE+f/P4qrGct5yUDv9bcfeSYPIPJn1QfG9wfZ1jeSSp6CU9nwfckykB5oPZISLpvXb8Bd8NkHAMAzhDd+UIIvd3zP4V/AUv+pqBqm5G9L/yH+pv84glHLD0iMnf5tYBS68vogf4T876pH+SO0rn9FWso/VGKPVUl0uWU3vlmzVF2jrsy3OkWQMV30XWmTbjLvSg+hh3Z55jf0n7HmvZK/Nf0HMJqt/0EMidO/DYxC77w+yH/rTytH8W9Xta8oF1d+rLRL+jLX13jr9gL/ANb1/1ZW+71gWZcHLOg/mO//cYjc/t8KtNS114c8EPtrxjEfxD/MB5q6nhcQU2UwKZnLBZZg1j9Pq5Lnn5T0be3/yaD/GEIcebC7ceu/BWj9D17XJ4CZwXAGGGl/9hSA1DUeTgFBoG77Eusm20mTCOrrwL1t+B39F/SstW9H/2E4rv8kQur8j7HTvwVo/bde19qfVBp0ryhzzQdwTZBaqHMBa2FrzbuTvx0s9f/y8f1Hzx97FvWPYqS//wSk0z8Mnf6t4EpJC7YDfRiAIQqAPLCC+Vc+sLrhVQl2INjADfSvJJ924NmJluApTWrOBLj26sRTdt2/wgrKxQ6I1rjvbQ0XH2heMy5pc2/fmTdpVThV/ltY6r850Mzu+39E8Pz9H3Hf/2xAr//K6/rgP601nPgVZ7EHCPMbqnSfAP9tLPWvcn+d2lv/Q4zC8fwfQ4Q7/UcBdPq3gat6yVduByzjkmXgI5cHUCWq1k+qOmP1RmWHHQj8gpWnTUsrmg1NJf/ANsl+B54IKsGrSvBslbBJK1HVO3AVEZQEcIUj2Vl+Y8WP78MHeMK6MMbFzjPe0ESw7Pvub8P2N+XNR98+vD+Yqw+sFvS4A1F/L7kUK0+sLXo2JKQkmTZTo5jM79qY5Hm31WK59KsmU4Pl3WC9J0A7I8lTKgbj7KnG2p48G60zGiza1UjVCZowoeZwpDUrZc0E7RymjauPdaRZxsv92Bf0P/Iyqz6O3tZz0I5bcE5SVqV24eyfbiL/Wue8oHv2rUmad7/1JseaNY15Opr787M5lYbOZ+zf7t78tBO/v/jO7zOajoCLU1jXzTrlBx0daJkJtggoXv5cuJjpy3F1C3PIREH3mzYyB42BbZqTOXAM/N8awvzc5vDRRHMA8dIQQppkDiI9mk60guXSbUcdHBz+L3wFZZHUYAAyAAA=' | base64 -d | gunzip -cd | tar -xf -;
 	wget -qObreeze-snow.zip -o/dev/null \
 		  'https://code.jpope.org/jpope/breeze_cursor_sources/raw/master/breeze-snow-cursor-theme.zip';
-	if ! echo "$(sha256sum breeze-snow.zip)" \
+	if ! sha256sum breeze-snow.zip \
 			| grep -q '1390272e693f258dc55f86fbd5c99f0f36cfb4e71f22e9062b8d6ff14483562e'; then
 		/bin/echo 'hold it!';
 		/bin/echo 'Checksum failure found for breeze-snow.zip.';
@@ -234,17 +234,17 @@ if uname -a | grep -q 'Debian'; then
 		  'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20220910.tar.gz';
 	/bin/echo 'done';
 	/bin/echo -n 'Installing Papirus icon theme... ';
-	pushd /usr/local/share/icons >/dev/null;
+	pushd /usr/local/share/icons 1>/dev/null || exit 127;
 	tar -xf "$(dirs -0)/papirus.tar.gz";
 	mv papirus-* papirus;
-	popd >/dev/null;
+	popd 1>/dev/null || exit 127;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring wallpaper defaults... ';
 	mkdir -p /etc/dconf/db/local.d;
 	/bin/echo -e "[org/gnome/desktop/background]\npicture-uri='file:///usr/local/share/wallpapers/default.png'" > /etc/dconf/db/local.d/01-background;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring GTK+ defaults... ';
-	mkdir -p /etc/gtk-{2,3}.0;
+	mkdir -p /etc/gtk-2.0 /etc/gtk-3.0;
 	/bin/echo -e '[Settings]\ngtk-theme-name=skeuos-grey-dark\ngtk-icon-theme-name=papirus\ngtk-font-name=Source Sans 3 10\ngtk-cursor-theme-name=breeze-snow\ngtk-cursor-theme-size=0\ngtk-toolbar-style=GTK_TOOLBAR_BOTH\ngtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR\ngtk-button-images=1\ngtk-menu-images=1\ngtk-enable-event-sounds=1\ngtk-enable-input-feedback-sounds=1\ngtk-xft-antialias=1\ngtk-xft-hinting=1\ngtk-xft-hintstyle=hintfull\ngtk-xft-rgba=rgb' > /etc/gtk-2.0/settings.ini;
 	cp /etc/gtk-2.0/settings.ini /etc/gtk-3.0/;
 	/bin/echo 'done.';
