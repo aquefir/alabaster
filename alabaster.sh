@@ -266,19 +266,37 @@ fi
 /bin/echo -n 'Configuring sudoers defaults... ';
 mkdir -p /etc/sudoers.d;
 /bin/echo -e '%sudo\tALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/sudo-nopasswd;
+/bin/echo 'done.';
+/bin/echo -n 'Downloading dotfiles... ';
+curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz' > dotfiles.tar.gz;
+tar -xf dotfiles.tar.gz;
+pushd dotfiles-* 1>/dev/null || exit 127;
+util/tarball.sh src "$(dirs -0)/out.tar";
+/bin/echo -n 'Installing the dotfiles into /etc/skel... ';
+pushd /etc/skel 1>/dev/null || exit 127;
+tar -xf "$(dirs -0)/out.tar";
+popd 1>/dev/null || exit 127;
+/bin/echo 'done.';
+/bin/echo -n 'Installing the dotfiles into /root... ';
+pushd /root 1>/dev/null || exit 127;
+tar -xf "$(dirs -0)/out.tar";
+popd 1>/dev/null || exit 127;
+/bin/echo 'done.';
+popd 1>/dev/null || exit 127;
+/bin/echo -n 'Cleaning up dotfiles staging... ';
+rm -rf dotfiles-* dotfiles.tar.gz out.tar;
+/bin/echo 'done.'
 
-#/bin/echo -n 'Downloading and unpacking distro data... ';
-## tar will unpack these into the system root
-#cd /;
-## piping makes it all async :)
-#wget -qO- -Uwget -o/dev/null https://alabaster.sh/data | \
-#	plzip -qdn "$(nproc)" - | tar -xf -;
-#/bin/echo 'done.';
-#
-## go home
-#cd;
-
-/bin/echo 'All done.';
+/bin/echo 'Setup is now complete.';
 /bin/echo '';
-/bin/echo 'It is recommended to reboot your system now.';
-/bin/echo 'Enjoy Alabaster Linux!!!';
+/bin/echo 'You may now reboot into your new installation!';
+/bin/echo '';
+/bin/echo 'Before leaving, you may wish to create additional users; if any of';
+/bin/echo 'them need sudo privileges, the system is already configured to';
+/bin/echo 'give it to all members of the sudo usergroup (usermod -aG sudo).';
+/bin/echo '';
+/bin/echo 'This is also a good time to install any credentials, such as SSH';
+/bin/echo 'keys, OAuth tokens, and PGP keypairs.';
+/bin/echo '';
+/bin/echo 'Thank you for choosing Alabaster!';
+/bin/echo '';
