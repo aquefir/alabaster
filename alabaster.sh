@@ -18,10 +18,9 @@ cd || exit 127; # start at home
 
 if uname -a | grep -q '.el7.'; then
 	/bin/echo -n 'Installing dependencies with yum... ';
-	yum install wget autoconf automake binutils bison flex gcc gcc-c++ gettext \
-		 libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
-		 gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip \
-		 1>/dev/null 2>&1;
+	yum install -y wget autoconf automake binutils bison flex gcc gcc-c++ \
+		 gettext libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
+		 gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip;
 	/bin/echo 'done.';
 elif uname -a | grep -q ' Debian ' && lsb_release -d | grep -q '(buster)'; then
 	/bin/echo 'Installing packages with apt-get...';
