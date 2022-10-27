@@ -273,7 +273,7 @@ curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz
 /bin/echo 'done.';
 tar -xf dotfiles.tar.gz;
 cd dotfiles-* 1>/dev/null || exit 127;
-util/tarball.sh src "out.tar";
+sh util/tarball.sh src out.tar;
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
 pushd /etc/skel 1>/dev/null || exit 127;
 tar -xf "$(dirs -0)/out.tar";
