@@ -302,14 +302,14 @@ curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz
 /bin/echo 'done.';
 tar -xf dotfiles.tar.gz;
 cd dotfiles-* || exit 127;
-sh util/tarball.sh src ../out.tar;
+sh util/tarball.sh src "/tmp/out.tar";
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
 cd /etc/skel || exit 127;
-tar -xf "$HOME/out.tar";
+tar -xf "/tmp/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /root... ';
 cd /root || exit 127;
-tar -xf "$HOME/out.tar";
+tar -xf "/tmp/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /home subdirectories... ';
 for dir in $(ls -A1 /home); do
@@ -319,7 +319,7 @@ done
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
 cd; # go home
-rm -rf dotfiles-* dotfiles.tar.gz out.tar;
+rm -rf dotfiles-* dotfiles.tar.gz /tmp/out.tar;
 /bin/echo 'done.'
 
 /bin/echo 'Setup is now complete.';
