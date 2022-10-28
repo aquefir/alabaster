@@ -213,6 +213,8 @@ if uname -a | grep -q 'Debian'; then
 	else
 		mkdir -p /usr/local/share/icons/default;
 		unzip breeze-snow.zip -d /usr/local/share/icons/;
+		test -d /usr/local/share/icons/breeze-snow && \
+			rm -rf /usr/local/share/icons/breeze-snow;
 		mv /usr/local/share/icons/Breeze_Snow /usr/local/share/icons/breeze-snow;
 		/bin/echo 'done.';
 	fi
@@ -221,11 +223,11 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -e '[Icon Theme]\nInherits=breeze-snow' > /usr/local/share/icons/default/index.theme;
 	/bin/echo 'done.';
 	/bin/echo -n 'Downloading Papirus icon theme... ';
+	cd /usr/local/share/icons || exit 127;
 	curl -fsSL 'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20220910.tar.gz' > papirus.tar.gz;
 	/bin/echo 'done';
 	/bin/echo -n 'Installing Papirus icon theme... ';
-	cd /usr/local/share/icons || exit 127;
-	tar -xf "papirus.tar.gz";
+	tar -xf papirus.tar.gz;
 	mv papirus-* papirus;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring wallpaper defaults... ';
