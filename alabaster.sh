@@ -47,7 +47,7 @@ curl -fsSL 'https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.38.1.tar.
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf git.tar.gz;
-pushd git-* 1>/dev/null || exit 127;
+cd git-* || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
 make configure 1>/dev/null 2>&1;
@@ -61,7 +61,7 @@ make -j"$(nproc)" 1>/dev/null 2>&1;
 make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd 1>/dev/null || exit 127;
+cd .. || exit 127;
 rm -rf git.tar.gz git-*;
 /bin/echo 'done.';
 
@@ -72,7 +72,7 @@ curl -fsSL 'https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.13.tar
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf lzlib.tar.gz;
-pushd lzlib-* 1>/dev/null || exit 127;
+cd lzlib-* || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
 ./configure 1>/dev/null 2>&1;
@@ -84,7 +84,7 @@ make -j"$(nproc)" 1>/dev/null 2>&1;
 make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd 1>/dev/null || exit 127;
+cd .. || exit 127;
 rm -rf lzlib.tar.gz lzlib-*;
 /bin/echo 'done.';
 
@@ -95,7 +95,7 @@ curl -fsSL 'https://download.savannah.gnu.org/releases/lzip/plzip/plzip-1.10.tar
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 tar -xf plzip.tar.gz;
-pushd plzip-* 1>/dev/null || exit 127;
+cd plzip-* || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
 ./configure 1>/dev/null 2>&1;
@@ -107,7 +107,7 @@ make -j"$(nproc)" 1>/dev/null 2>&1;
 make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd 1>/dev/null || exit 127;
+cd .. || exit 127;
 rm -rf plzip.tar.gz plzip-*;
 /bin/echo 'done.';
 
@@ -118,7 +118,7 @@ curl -fsSL 'https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.23.tar
 /bin/echo 'done.';
 /bin/echo -n 'Unpacking the tarball... ';
 plzip -cd tarlz.tar.lz | tar -xf -;
-pushd tarlz-* 1>/dev/null || exit 127;
+cd tarlz-* || exit 127;
 /bin/echo 'done.';
 /bin/echo -n 'Configuring the build with autotools... ';
 ./configure 1>/dev/null 2>&1;
@@ -130,7 +130,7 @@ make -j"$(nproc)" 1>/dev/null 2>&1;
 make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up... ';
-popd 1>/dev/null || exit 127;
+cd .. || exit 127;
 rm -rf tarlz.tar.lz tarlz-*;
 /bin/echo 'Done.';
 
@@ -188,17 +188,19 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -n 'Installing SkeuOS GTK+ theme... ';
 	mkdir -p /usr/local/share/themes;
 	tar -xf skeuos.tar.gz;
-	pushd skeuos-* 1>/dev/null || exit 127;
+	cd skeuos-* || exit 127;
 	cp -r themes/Skeuos-Grey-Dark /usr/local/share/themes/skeuos-grey-dark;
 	cp -r themes/Skeuos-Grey-Dark-GNOME_40+41/gnome-shell \
 		/usr/local/share/themes/skeuos-grey-dark/gnome-shell;
 	cp -r themes/Skeuos-Grey-Dark-FullPanel-GNOME_40+41 \
 		/usr/local/share/themes/skeuos-grey-dark-fullpanel;
-	popd 1>/dev/null || exit 127;
+	cd .. || exit 127;
+	rm -rf skeuos-* skeuos.tar.gz;
 	/bin/echo 'done.';
 	/bin/echo -n 'Extracting Fumaca 2.0 Openbox theme... ';
 	mkdir -p /usr/local/share/themes;
-	pushd /usr/local/share/themes 1>/dev/null || exit 127;
+	cwd="$PWD";
+	cd /usr/local/share/themes || exit 127;
 	/bin/echo 'H4sICMQvWmMCAGZ1bWFjYTIudGFyAO1ZXc+TMBTmVn5FE2800dlCoXPGxG9vNDF6aYwpULZqgQU6nTH+d6GARcBVjTYm9lnSF3qefvCe85y2kJ8KmtLglvcXASGGhBAP9pj/VdcIh0GMAxLHqK0nIY48EHkWcGokrdshvf8To/+rIyuT6nwzXEaCff8jhCLi/G8DS/8nJyGY3JyT4o/5H8GL/kcEeSgMURREmERhy++uPbDqE+f/P4qrGct5yUDv9bcfeSYPIPJn1QfG9wfZ1jeSSp6CU9nwfckykB5oPZISLpvXb8Bd8NkHAMAzhDd+UIIvd3zP4V/AUv+pqBqm5G9L/yH+pv84glHLD0iMnf5tYBS68vogf4T876pH+SO0rn9FWso/VGKPVUl0uWU3vlmzVF2jrsy3OkWQMV30XWmTbjLvSg+hh3Z55jf0n7HmvZK/Nf0HMJqt/0EMidO/DYxC77w+yH/rTytH8W9Xta8oF1d+rLRL+jLX13jr9gL/ANb1/1ZW+71gWZcHLOg/mO//cYjc/t8KtNS114c8EPtrxjEfxD/MB5q6nhcQU2UwKZnLBZZg1j9Pq5Lnn5T0be3/yaD/GEIcebC7ceu/BWj9D17XJ4CZwXAGGGl/9hSA1DUeTgFBoG77Eusm20mTCOrrwL1t+B39F/SstW9H/2E4rv8kQur8j7HTvwVo/bde19qfVBp0ryhzzQdwTZBaqHMBa2FrzbuTvx0s9f/y8f1Hzx97FvWPYqS//wSk0z8Mnf6t4EpJC7YDfRiAIQqAPLCC+Vc+sLrhVQl2INjADfSvJJ924NmJluApTWrOBLj26sRTdt2/wgrKxQ6I1rjvbQ0XH2heMy5pc2/fmTdpVThV/ltY6r850Mzu+39E8Pz9H3Hf/2xAr//K6/rgP601nPgVZ7EHCPMbqnSfAP9tLPWvcn+d2lv/Q4zC8fwfQ4Q7/UcBdPq3gat6yVduByzjkmXgI5cHUCWq1k+qOmP1RmWHHQj8gpWnTUsrmg1NJf/ANsl+B54IKsGrSvBslbBJK1HVO3AVEZQEcIUj2Vl+Y8WP78MHeMK6MMbFzjPe0ESw7Pvub8P2N+XNR98+vD+Yqw+sFvS4A1F/L7kUK0+sLXo2JKQkmTZTo5jM79qY5Hm31WK59KsmU4Pl3WC9J0A7I8lTKgbj7KnG2p48G60zGiza1UjVCZowoeZwpDUrZc0E7RymjauPdaRZxsv92Bf0P/Iyqz6O3tZz0I5bcE5SVqV24eyfbiL/Wue8oHv2rUmad7/1JseaNY15Opr787M5lYbOZ+zf7t78tBO/v/jO7zOajoCLU1jXzTrlBx0daJkJtggoXv5cuJjpy3F1C3PIREH3mzYyB42BbZqTOXAM/N8awvzc5vDRRHMA8dIQQppkDiI9mk60guXSbUcdHBz+L3wFZZHUYAAyAAA=' | base64 -d | gunzip -cd | tar -xf -;
 	curl -fsSL 'https://code.jpope.org/jpope/breeze_cursor_sources/raw/master/breeze-snow-cursor-theme.zip' > breeze-snow.zip;
 	if ! sha256sum breeze-snow.zip \
@@ -221,7 +223,7 @@ if uname -a | grep -q 'Debian'; then
 	curl -fsSL 'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20220910.tar.gz' > breeze-snow.tar.gz;
 	/bin/echo 'done';
 	/bin/echo -n 'Installing Papirus icon theme... ';
-	pushd /usr/local/share/icons 1>/dev/null || exit 127;
+	cd /usr/local/share/icons || exit 127;
 	tar -xf "$(dirs -0)/papirus.tar.gz";
 	mv papirus-* papirus;
 	popd 1>/dev/null || exit 127;
@@ -262,6 +264,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -n '' > /etc/xdg/user-dirs.defaults;
 	/bin/echo -e 'enabled=False\nfilename_encoding=UTF-8' > /etc/xdg/user-dirs.conf;
 	/bin/echo 'done.';
+	cd "$cwd";
 fi
 
 /bin/echo -n 'Configuring sudoers defaults... ';
@@ -272,19 +275,19 @@ mkdir -p /etc/sudoers.d;
 curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz' > dotfiles.tar.gz;
 /bin/echo 'done.';
 tar -xf dotfiles.tar.gz;
-cd dotfiles-* 1>/dev/null || exit 127;
+cd dotfiles-* || exit 127;
 sh util/tarball.sh src out.tar;
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
-pushd /etc/skel 1>/dev/null || exit 127;
-tar -xf "$(dirs -0 | sed "s:~:$HOME:")/out.tar";
-popd 1>/dev/null || exit 127;
+cwd="$PWD";
+cd /etc/skel || exit 127;
+tar -xf "$(/bin/echo "$cwd" | sed "s:~:$HOME:")/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /root... ';
-pushd /root 1>/dev/null || exit 127;
-tar -xf "$(dirs -0 | sed "s:~:$HOME:")/out.tar";
-popd 1>/dev/null || exit 127;
+cd /root || exit 127;
+tar -xf "$(/bin/echo "$cwd" | sed "s:~:$HOME:")/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
+cd "$cwd";
 rm -rf dotfiles-* dotfiles.tar.gz out.tar;
 /bin/echo 'done.'
 
