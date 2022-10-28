@@ -203,6 +203,7 @@ if uname -a | grep -q 'Debian'; then
 	cwd="$PWD";
 	cd /usr/share/themes || exit 127;
 	/bin/echo 'H4sICMQvWmMCAGZ1bWFjYTIudGFyAO1ZXc+TMBTmVn5FE2800dlCoXPGxG9vNDF6aYwpULZqgQU6nTH+d6GARcBVjTYm9lnSF3qefvCe85y2kJ8KmtLglvcXASGGhBAP9pj/VdcIh0GMAxLHqK0nIY48EHkWcGokrdshvf8To/+rIyuT6nwzXEaCff8jhCLi/G8DS/8nJyGY3JyT4o/5H8GL/kcEeSgMURREmERhy++uPbDqE+f/P4qrGct5yUDv9bcfeSYPIPJn1QfG9wfZ1jeSSp6CU9nwfckykB5oPZISLpvXb8Bd8NkHAMAzhDd+UIIvd3zP4V/AUv+pqBqm5G9L/yH+pv84glHLD0iMnf5tYBS68vogf4T876pH+SO0rn9FWso/VGKPVUl0uWU3vlmzVF2jrsy3OkWQMV30XWmTbjLvSg+hh3Z55jf0n7HmvZK/Nf0HMJqt/0EMidO/DYxC77w+yH/rTytH8W9Xta8oF1d+rLRL+jLX13jr9gL/ANb1/1ZW+71gWZcHLOg/mO//cYjc/t8KtNS114c8EPtrxjEfxD/MB5q6nhcQU2UwKZnLBZZg1j9Pq5Lnn5T0be3/yaD/GEIcebC7ceu/BWj9D17XJ4CZwXAGGGl/9hSA1DUeTgFBoG77Eusm20mTCOrrwL1t+B39F/SstW9H/2E4rv8kQur8j7HTvwVo/bde19qfVBp0ryhzzQdwTZBaqHMBa2FrzbuTvx0s9f/y8f1Hzx97FvWPYqS//wSk0z8Mnf6t4EpJC7YDfRiAIQqAPLCC+Vc+sLrhVQl2INjADfSvJJ924NmJluApTWrOBLj26sRTdt2/wgrKxQ6I1rjvbQ0XH2heMy5pc2/fmTdpVThV/ltY6r850Mzu+39E8Pz9H3Hf/2xAr//K6/rgP601nPgVZ7EHCPMbqnSfAP9tLPWvcn+d2lv/Q4zC8fwfQ4Q7/UcBdPq3gat6yVduByzjkmXgI5cHUCWq1k+qOmP1RmWHHQj8gpWnTUsrmg1NJf/ANsl+B54IKsGrSvBslbBJK1HVO3AVEZQEcIUj2Vl+Y8WP78MHeMK6MMbFzjPe0ESw7Pvub8P2N+XNR98+vD+Yqw+sFvS4A1F/L7kUK0+sLXo2JKQkmTZTo5jM79qY5Hm31WK59KsmU4Pl3WC9J0A7I8lTKgbj7KnG2p48G60zGiza1UjVCZowoeZwpDUrZc0E7RymjauPdaRZxsv92Bf0P/Iyqz6O3tZz0I5bcE5SVqV24eyfbiL/Wue8oHv2rUmad7/1JseaNY15Opr787M5lYbOZ+zf7t78tBO/v/jO7zOajoCLU1jXzTrlBx0daJkJtggoXv5cuJjpy3F1C3PIREH3mzYyB42BbZqTOXAM/N8awvzc5vDRRHMA8dIQQppkDiI9mk60guXSbUcdHBz+L3wFZZHUYAAyAAA=' | base64 -d | gunzip -cd | tar -xf -;
+	cd "$cwd" || exit 127;
 	curl -fsSL 'https://code.jpope.org/jpope/breeze_cursor_sources/raw/master/breeze-snow-cursor-theme.zip' > breeze-snow.zip;
 	if ! sha256sum breeze-snow.zip \
 			| grep -q '1390272e693f258dc55f86fbd5c99f0f36cfb4e71f22e9062b8d6ff14483562e'; then
@@ -234,6 +235,7 @@ if uname -a | grep -q 'Debian'; then
 	rm -rf papirus-repo;
 	rm papirus.tar.gz;
 	/bin/echo 'done.';
+	cd "$cwd" || exit 127;
 	/bin/echo -n 'Configuring wallpaper defaults... ';
 	mkdir -p /etc/dconf/db/local.d;
 	/bin/echo -e "[org/gnome/desktop/background]\npicture-uri='file:///usr/share/wallpapers/default.png'" > /etc/dconf/db/local.d/01-background;
@@ -287,7 +289,6 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -n '' > /etc/xdg/user-dirs.defaults;
 	/bin/echo -e 'enabled=False\nfilename_encoding=UTF-8' > /etc/xdg/user-dirs.conf;
 	/bin/echo 'done.';
-	cd "$cwd";
 fi
 
 /bin/echo -n 'Configuring sudoers defaults... ';
@@ -297,27 +298,27 @@ mkdir -p /etc/sudoers.d;
 /bin/echo -n 'Downloading dotfiles... ';
 curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz' > dotfiles.tar.gz;
 /bin/echo 'done.';
-tar -xf dotfiles.tar.gz;
 cwd="$PWD";
+tar -xf dotfiles.tar.gz;
 cd dotfiles-* || exit 127;
-sh util/tarball.sh src "$HOME/out.tar";
+sh util/tarball.sh src ../out.tar;
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
 cd /etc/skel || exit 127;
-tar -xf "$HOME/out.tar";
+tar -xf "$cwd/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /root... ';
 cd /root || exit 127;
-tar -xf "$HOME/out.tar";
+tar -xf "$cwd/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /home subdirectories... ';
 for dir in $(ls -A1 /home); do
-	/bin/echo -n "/home/$(dir)... ";
-	cp -r /etc/skel/. "/home/$(dir)/";
+	/bin/echo -n "/home/$dir... ";
+	cp -r /etc/skel/. "/home/$dir/";
 done
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
 cd "$cwd";
-rm -rf dotfiles-* dotfiles.tar.gz "$HOME/out.tar";
+rm -rf dotfiles-* dotfiles.tar.gz out.tar;
 /bin/echo 'done.'
 
 /bin/echo 'Setup is now complete.';
