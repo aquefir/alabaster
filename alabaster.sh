@@ -240,7 +240,7 @@ if uname -a | grep -q 'Debian'; then
 	cp /etc/gtk-2.0/settings.ini /etc/gtk-3.0/settings.ini;
 	mkdir -p "$HOME/.config/gtk-3.0";
 	cp /etc/gtk-3.0/settings.ini "$HOME/.config/gtk-3.0/settings.ini";
-	mkdir /etc/skel/.config/gtk-3.0;
+	mkdir -p /etc/skel/.config/gtk-3.0;
 	cp /etc/gtk-3.0/settings.ini /etc/skel/.config/gtk-3.0/settings.ini;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring LightDM... ';
