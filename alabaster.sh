@@ -221,7 +221,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -e '[Icon Theme]\nInherits=breeze-snow' > /usr/local/share/icons/default/index.theme;
 	/bin/echo 'done.';
 	/bin/echo -n 'Downloading Papirus icon theme... ';
-	curl -fsSL 'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20220910.tar.gz' > breeze-snow.tar.gz;
+	curl -fsSL 'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20220910.tar.gz' > papirus.tar.gz;
 	/bin/echo 'done';
 	/bin/echo -n 'Installing Papirus icon theme... ';
 	cd /usr/local/share/icons || exit 127;
