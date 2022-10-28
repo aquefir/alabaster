@@ -308,7 +308,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -e '[global_config]\n[keybindings]\n\tcopy = <Super>c\n\tpaste = <Super>v\n[profiles]\n\t[[default]]\n\t\tallow_bold = False\n\t\tbackground_darkness = 0.75\n\t\tbackground_type = transparent\n\t\tcursor_color = "#aaaaaa"\n\t\tfont = Source Code Pro Medium 10\n\t\tshow_titlebar = False\n\t\tscrollback_infinite = True\n\t\tlogin_shell = True\n\t\tuse_system_font = False\n[layouts]\n\t[[default]]\n\t\t[[[window0]]]\n\t\t\ttype = Window\n\t\t\tparent = ""\n\t\t[[[child1]]]\n\t\t\ttype = Terminal\n\t\t\tparent = window0\n[plugins]' > /etc/xdg/terminator/config;
 	mkdir -p "$HOME/.config/terminator";
 	cp /etc/xdg/terminator/config "$HOME/.config/terminator/config";
-	mkdir -p /etc/skel/.config/terminator/config;
+	mkdir -p /etc/skel/.config/terminator;
 	cp /etc/xdg/terminator/config /etc/skel/.config/terminator/config;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring file manager defaults... ';
@@ -363,6 +363,7 @@ tar -xf "/tmp/out.tar";
 for dir in $(ls -A1 /home); do
 	/bin/echo -n "/home/$dir... ";
 	cp -r /etc/skel/. "/home/$dir/";
+	chown -R "$dir":"$dir" "/home/$dir";
 done
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
