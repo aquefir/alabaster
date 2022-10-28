@@ -229,6 +229,7 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo -n 'Installing Papirus icon theme... ';
 	tar -xf papirus.tar.gz;
 	mv papirus-* papirus-repo;
+	test -d papirus && rm -rf papirus; # remove existing
 	mv papirus-repo/Papirus papirus;
 	rm -rf papirus-repo;
 	rm papirus.tar.gz;
@@ -299,14 +300,14 @@ curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz
 tar -xf dotfiles.tar.gz;
 cwd="$PWD";
 cd dotfiles-* || exit 127;
-sh util/tarball.sh src "$cwd/out.tar";
+sh util/tarball.sh src "$HOME/out.tar";
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
 cd /etc/skel || exit 127;
-tar -xf "$cwd/out.tar";
+tar -xf "$HOME/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /root... ';
 cd /root || exit 127;
-tar -xf "$cwd/out.tar";
+tar -xf "$HOME/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /home subdirectories... ';
 for dir in $(ls -A1 /home); do
@@ -316,7 +317,7 @@ done
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
 cd "$cwd";
-rm -rf dotfiles-* dotfiles.tar.gz out.tar;
+rm -rf dotfiles-* dotfiles.tar.gz "$HOME/out.tar";
 /bin/echo 'done.'
 
 /bin/echo 'Setup is now complete.';
