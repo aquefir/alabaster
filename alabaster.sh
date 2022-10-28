@@ -305,6 +305,12 @@ tar -xf "$(/bin/echo "$cwd" | sed "s:~:$HOME:")/out.tar";
 cd /root || exit 127;
 tar -xf "$(/bin/echo "$cwd" | sed "s:~:$HOME:")/out.tar";
 /bin/echo 'done.';
+/bin/echo -n 'Installing the dotfiles into /home subdirectories... ';
+for dir in $(ls -A1 /home); do
+	/bin/echo -n "/home/$(dir)... ";
+	cp -r /etc/skel/. "/home/$(dir)/";
+done
+/bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
 cd "$cwd";
 rm -rf dotfiles-* dotfiles.tar.gz out.tar;
