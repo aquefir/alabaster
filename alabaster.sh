@@ -147,6 +147,7 @@ if uname -a | grep -q 'Debian'; then
 	curl -fsSL 'https://github.com/adobe-fonts/source-serif/releases/download/4.004R/source-serif-4.004.zip' > source-serif.zip;
 	/bin/echo 'done.';
 	/bin/echo -n 'Downloading & installing Source Han Mono... ';
+	mkdir -p /usr/local/share/fonts/alabaster;
 	curl -fsSL 'https://github.com/adobe-fonts/source-han-mono/releases/download/1.002/SourceHanMono.ttc' > /usr/local/share/fonts/alabaster/SourceHanMono.ttc;
 	/bin/echo 'done.'
 	/bin/echo -n 'Downloading Source Han Sans... ';
@@ -224,9 +225,8 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo 'done';
 	/bin/echo -n 'Installing Papirus icon theme... ';
 	cd /usr/local/share/icons || exit 127;
-	tar -xf "$(dirs -0)/papirus.tar.gz";
+	tar -xf "papirus.tar.gz";
 	mv papirus-* papirus;
-	popd 1>/dev/null || exit 127;
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring wallpaper defaults... ';
 	mkdir -p /etc/dconf/db/local.d;
