@@ -291,6 +291,8 @@ if uname -a | grep -q 'Debian'; then
 	/bin/echo 'done.';
 fi
 
+cd; # go home
+
 /bin/echo -n 'Configuring sudoers defaults... ';
 mkdir -p /etc/sudoers.d;
 /bin/echo -e '%sudo\tALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/sudo-nopasswd;
@@ -298,17 +300,16 @@ mkdir -p /etc/sudoers.d;
 /bin/echo -n 'Downloading dotfiles... ';
 curl -fsSL 'https://github.com/aquefir/dotfiles/archive/refs/heads/master.tar.gz' > dotfiles.tar.gz;
 /bin/echo 'done.';
-cwd="$PWD";
 tar -xf dotfiles.tar.gz;
 cd dotfiles-* || exit 127;
 sh util/tarball.sh src ../out.tar;
 /bin/echo -n 'Installing the dotfiles into /etc/skel... ';
 cd /etc/skel || exit 127;
-tar -xf "$cwd/out.tar";
+tar -xf "$HOME/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /root... ';
 cd /root || exit 127;
-tar -xf "$cwd/out.tar";
+tar -xf "$HOME/out.tar";
 /bin/echo 'done.';
 /bin/echo -n 'Installing the dotfiles into /home subdirectories... ';
 for dir in $(ls -A1 /home); do
@@ -317,7 +318,7 @@ for dir in $(ls -A1 /home); do
 done
 /bin/echo 'done.';
 /bin/echo -n 'Cleaning up dotfiles staging... ';
-cd "$cwd";
+cd; # go home
 rm -rf dotfiles-* dotfiles.tar.gz out.tar;
 /bin/echo 'done.'
 
