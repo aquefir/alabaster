@@ -159,22 +159,22 @@ if uname -a | grep -q 'Debian'; then
 	mkdir -p /usr/local/share/fonts/alabaster;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Code Pro... ';
-	unzip source-code-pro.zip -x LICENSE.md \
+	unzip -q source-code-pro.zip -x LICENSE.md \
 			-d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Sans Pro... ';
 	unzip source-sans.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Serif Pro... ';
-	unzip source-serif.zip 'source-serif-4.004/TTF/*.ttf' \
+	unzip -q source-serif.zip 'source-serif-4.004/TTF/*.ttf' \
 			-d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	# no Source Han Mono to extract...
 	/bin/echo -n 'Unpacking Source Han Sans... ';
-	unzip source-han-sans.zip -d /usr/local/share/fonts/alabaster/;
+	unzip -q source-han-sans.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Han Serif... ';
-	unzip source-han-serif.zip -d /usr/local/share/fonts/alabaster/;
+	unzip -q source-han-serif.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Cleaning up font packages... ';
 	rm source-*.zip;
@@ -213,7 +213,7 @@ if uname -a | grep -q 'Debian'; then
 		/bin/echo 'Skipping...';
 	else
 		mkdir -p /usr/share/icons/default;
-		unzip breeze-snow.zip -d /usr/share/icons/;
+		unzip -q breeze-snow.zip -d /usr/share/icons/;
 		test -d /usr/share/icons/breeze-snow && \
 			rm -rf /usr/share/icons/breeze-snow;
 		mv /usr/share/icons/Breeze_Snow /usr/share/icons/breeze-snow;
