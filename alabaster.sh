@@ -8,7 +8,7 @@
 ## <//aquefir.co/asl>
 ##
 ## Artisan Software Licence, version 1.1.
-## Copyright (C) 20XX John Doe. All rights reserved.
+## Copyright (C) 2022 Aquefir. All rights reserved.
 ##
 ## Redistribution and use in source and binary forms are permitted, provided
 ## that ALL of the following conditions are met:
@@ -56,18 +56,18 @@ cd || exit 127; # start at home
 if uname -a | grep -q '.el7.'; then
 	/bin/echo -n 'Installing dependencies with yum... ';
 	yum install -y wget autoconf automake binutils bison flex gcc gcc-c++ \
-		 gettext libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
-		 gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip \
-		1>/dev/null 2>&1;
+	    gettext libtool make patch pkgconfig emacs-nox curl-devel expat-devel \
+	    gettext-devel openssl-devel zlib-devel perl-CPAN perl-devel zip unzip \
+	    1>/dev/null 2>&1;
 	/bin/echo 'done.';
 elif uname -a | grep -q ' Debian ' && lsb_release -d | grep -q '(buster)'; then
 	/bin/echo 'Installing packages with apt-get...';
 	export DEBIAN_FRONTEND=noninteractive;
 	apt-get -qq install -qqy sudo feh lz4 lightdm openbox terminator gmrun \
-			  thunar tint2 emacs-nox build-essential bison flex dh-autoreconf \
-			  libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev \
-			  asciidoc xmlto docbook2x install-info curl zip unzip \
-			  1>/dev/null 2>&1;
+	        thunar tint2 emacs-nox build-essential bison flex dh-autoreconf \
+	        libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev \
+	        asciidoc xmlto docbook2x install-info curl zip unzip \
+	        1>/dev/null 2>&1;
 	/bin/echo 'apt-get done.';
 else
 	/bin/echo 'Unsupported version of UNIX.';
@@ -89,7 +89,7 @@ cd git-* || exit 127;
 /bin/echo -n 'Configuring the build with autotools... ';
 make configure 1>/dev/null 2>&1;
 ./configure --with-libpcre2 --with-editor=emacs --without-tcltk \
-				1>/dev/null 2>&1;
+            1>/dev/null 2>&1;
 /bin/echo 'done.';
 /bin/echo -n "Building with job control ($(nproc) threads)... ";
 make -j"$(nproc)" 1>/dev/null 2>&1;
