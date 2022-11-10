@@ -12,4 +12,4 @@
 	/bin/echo 'done.';
 	/bin/echo -n 'Configuring Openbox defaults... ';
 	mkdir -p /etc/xdg/openbox;
-	/bin/echo -e 'feh --bg-tile /usr/share/wallpapers/default.png &\ntint2 &' > /etc/xdg/openbox/autostart;
+	/bin/echo -e 'xbindkeys &\nfeh --bg-tile /usr/share/wallpapers/default.png &\ntint2 &' > /etc/xdg/openbox/autostart;

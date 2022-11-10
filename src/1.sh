@@ -66,7 +66,7 @@ elif uname -a | grep -q ' Debian ' && lsb_release -d | grep -q '(buster)'; then
 	apt-get -qq install -qqy sudo feh lz4 lightdm openbox terminator gmrun \
 	        thunar tint2 emacs-nox build-essential bison flex dh-autoreconf \
 	        libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev \
-	        asciidoc xmlto docbook2x install-info curl zip unzip \
+	        asciidoc xmlto docbook2x install-info curl zip unzip xbindkeys \
 	        1>/dev/null 2>&1;
 	/bin/echo 'apt-get done.';
 else
