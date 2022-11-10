@@ -1,0 +1,49 @@
+#openbox themerc edited with obtheme
+border.width: 2
+menu.items.active.bg: Flat Solid
+menu.items.active.bg.color: #171b20
+menu.items.active.text.color: #6EA0B4
+menu.items.bg: Flat Solid
+menu.items.bg.color: #171b20
+menu.items.disabled.text.color: #909090
+menu.items.text.color: #6E8CA0
+menu.overlap: 5
+menu.title.bg: Flat Solid
+menu.title.bg.color: #73a7b5
+menu.title.text.color: #73a7b5
+menu.title.text.justify: Left
+osd.bg: flat border vertical
+osd.bg.color: #909090
+osd.bg.border.color: #73a7b5
+osd.border.color: #73a7b5
+osd.border.width: 1
+osd.label.bg: parentrelative
+osd.label.text.color: #73a7b5
+padding.width: 0
+window.active.border.color: #171b20
+window.active.button.disabled.bg: Flat Solid
+window.active.button.disabled.bg.color: #171b20
+window.active.button.disabled.image.color: #cfcfcf
+window.active.button.pressed.bg: Flat Solid
+window.active.button.pressed.bg.color: #171b20
+window.active.button.unpressed.bg: Flat Solid
+window.active.button.unpressed.bg.color: #171b20
+window.active.button.unpressed.image.color: #cfcfcf
+window.active.label.bg: Parentrelative
+window.active.label.text.color: #171b20
+window.active.title.bg: Flat Solid
+window.active.title.bg.color: #171b20
+window.handle.width: 0
+window.inactive.button.disabled.bg: Flat Solid
+window.inactive.button.disabled.bg.color: #171b20
+window.inactive.button.disabled.image.color: #525252
+window.inactive.button.pressed.bg: Flat Solid
+window.inactive.button.pressed.bg.color: #171b20
+window.inactive.button.unpressed.bg: Flat Solid
+window.inactive.button.unpressed.bg.color: #171b20
+window.inactive.button.unpressed.image.color: #525252
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #171b20
+window.inactive.title.bg: Flat Solid
+window.inactive.title.bg.color: #171b20
+window.label.text.justify: left
