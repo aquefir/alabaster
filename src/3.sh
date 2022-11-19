@@ -9,7 +9,7 @@
 		/bin/echo 'Skipping...';
 	else
 		mkdir -p /usr/share/icons/default;
-		unzip -q breeze-snow.zip -d /usr/share/icons/;
+		unzip -q -o breeze-snow.zip -d /usr/share/icons/;
 		test -d /usr/share/icons/breeze-snow && \
 			rm -rf /usr/share/icons/breeze-snow;
 		mv /usr/share/icons/Breeze_Snow /usr/share/icons/breeze-snow;

@@ -196,22 +196,22 @@ if uname -a | grep -q 'Debian'; then
 	mkdir -p /usr/local/share/fonts/alabaster;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Code Pro... ';
-	unzip -q source-code-pro.zip -x LICENSE.md \
+	unzip -q -o source-code-pro.zip -x LICENSE.md \
 			-d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Sans Pro... ';
-	unzip -q source-sans.zip -d /usr/local/share/fonts/alabaster/;
+	unzip -q -o source-sans.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Serif Pro... ';
-	unzip -q source-serif.zip 'source-serif-4.004/TTF/*.ttf' \
+	unzip -q -o source-serif.zip 'source-serif-4.004/TTF/*.ttf' \
 			-d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	# no Source Han Mono to extract...
 	/bin/echo -n 'Unpacking Source Han Sans... ';
-	unzip -q source-han-sans.zip -d /usr/local/share/fonts/alabaster/;
+	unzip -q -o source-han-sans.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Unpacking Source Han Serif... ';
-	unzip -q source-han-serif.zip -d /usr/local/share/fonts/alabaster/;
+	unzip -q -o source-han-serif.zip -d /usr/local/share/fonts/alabaster/;
 	/bin/echo 'done.';
 	/bin/echo -n 'Cleaning up font packages... ';
 	rm source-*.zip;
