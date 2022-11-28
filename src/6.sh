@@ -1,4 +1,4 @@
-	| base64 -d | plzip -dc - | > /etc/xdg/openbox/menu.xml;
+	| base64 -d | plzip -dc - > /etc/xdg/openbox/menu.xml;
 	mkdir -p "$HOME/.config/openbox";
 	cp /etc/xdg/openbox/rc.xml "$HOME/.config/openbox/rc.xml";
 	cp /etc/xdg/openbox/menu.xml "$HOME/.config/openbox/menu.xml";
