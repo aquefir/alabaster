@@ -1,0 +1,1 @@
+{"windows":[],"selectedWindow":0,"_closedWindows":[],"session":{"state":"stopped","lastUpdate":1695628428722,"startTime":1695628419576,"recentCrashes":0},"scratchpads":[],"browserConsole":false}

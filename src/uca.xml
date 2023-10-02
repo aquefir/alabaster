@@ -1,1 +1,198 @@
-<?xml version="1.0" encoding="UTF-8"?><actions><action><icon>utilities-terminal</icon><name>Open terminal here</name><unique-id>1663722866309645-2</unique-id><command>terminator --working-directory="%f"</command><description>Opens a terminal session in the opened folder.</description><pattersn>*</patterns><startup-notify/><directories/></action></actions>
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>folder-adwaita-tar</icon>
+	<name>Create .tar</name>
+	<unique-id>1692909058095852-1</unique-id>
+	<command>tar -cf %n.tar %N</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-paleorange-tar</icon>
+	<name>Create .zip</name>
+	<unique-id>1692911021214399-12</unique-id>
+	<command>zip -9ro %n.zip %N</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-palebrown-tar</icon>
+	<name>Create uncompressed .zip</name>
+	<unique-id>1692911144060312-13</unique-id>
+	<command>zip -0ro %n.zip %N</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-green-tar</icon>
+	<name>Create .tar.gz</name>
+	<unique-id>1692909131893105-2</unique-id>
+	<command>tar c %N | gzip --best &gt; %n.tar.gz</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-blue-tar</icon>
+	<name>Create .tar.bz2</name>
+	<unique-id>1692909187292870-3</unique-id>
+	<command>tar c %N | bzip2 -9 &gt; %n.tar.bz2</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-pink-tar</icon>
+	<name>Create .tar.lz4</name>
+	<unique-id>1692909321161193-4</unique-id>
+	<command>tar c %N | lz4 -9 - %n.tar.lz4</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-red-tar</icon>
+	<name>Create .tar.lzo</name>
+	<unique-id>1692909488515097-5</unique-id>
+	<command>tar c %N | lzop -9o %n.tar.lzo</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-yellow-tar</icon>
+	<name>Create .tar.lz</name>
+	<unique-id>1692909791767401-6</unique-id>
+	<command>tarlz -c9pn 8 --anonymous -f %n.tar.lz %N</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-green-visiting</icon>
+	<name>Create .gz</name>
+	<unique-id>1692910021577318-7</unique-id>
+	<command>gzip -k9 %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-blue-visiting</icon>
+	<name>Create .bz2</name>
+	<unique-id>1692910141931724-8</unique-id>
+	<command>bzip2 -k9 %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-pink-visiting</icon>
+	<name>Create .lz4</name>
+	<unique-id>1692910284991967-9</unique-id>
+	<command>lz4 -9 %n %n.lz4</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-red-visiting</icon>
+	<name>Create .lzo</name>
+	<unique-id>1692910363531345-10</unique-id>
+	<command>lzop -9o %n.lzo %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>folder-yellow-visiting</icon>
+	<name>Create .lz</name>
+	<unique-id>1692910834727068-11</unique-id>
+	<command>plzip -k9n 8 -o %n.lz %n</command>
+	<description></description>
+	<patterns>*</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open terminal</name>
+	<unique-id>1693804980106015-1</unique-id>
+	<command>terminator --working-directory=%f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>utilities-terminal_su</icon>
+	<name>Open root terminal</name>
+	<unique-id>1693805021170754-2</unique-id>
+	<command>sudo terminator --working-directory=%f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>

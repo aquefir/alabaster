@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+<title>Alabaster Linux</title>
+<link rel="stylesheet" href="https://tohoku.ac/default.css" />
+</head>
+<body>
+<h1>Alabaster Linux</h1>
+<p><a href="https://github.com/aquefir/alabaster">Source code</a></p>
+<p class="noindent"><strong>One liner:</strong><br/>
+wget -O- -UwUget alabaster.sh | sh</p>
+<p class="noindent"><strong>Alternative syntax for RHEL-based
+distros:</strong><br/>
+curl -fsSL alabaster.sh | sh</p>
+<p>
+Note that installing and using wget will not work on RHELs as their
+version apparently does not follow redirects.
+</p>
+<h2>GUI setup</h2>
+<ol>
+<li>Download a compatible GNU/Linux distro:
+<ul>
+<li>Debian 10 (buster)</li>
+<li>Debian 11 (bullseye)</li>
+<li>Debian 12 (bookworm)</li>
+<li>Arch Linux</li>
+</ul>
+</li>
+<li>Boot into it and install it</li>
+<li>Follow setup according to your desires, but: on Debian, <strong>deselect all apt packages except for "standard system utilities"</strong>. Do NOT install a desktop environment!</li>
+<li>Log in as root using the password you set during installation.</li>
+<li>Run the one-liner up top!</li>
+<li>Once it completes, run reboot and log in normally.</li>
+</ol>
+<h2>CLI setup</h2>
+<ol>
+<li>Download a compatible GNU/Linux distro:
+<ul>
+<li>CentOS 7</li>
+<li>Rocky Linux 8</li>
+<li>Rocky Linux 9</li>
+<li>AlmaLinux 8</li>
+<li>AlmaLinux 9</li>
+<li>Debian 10 (buster)</li>
+<li>Debian 11 (bullseye)</li>
+<li>Debian 12 (bookworm)</li>
+<li>Arch Linux</li>
+</ul>
+</li>
+<li>Boot into it and install it</li>
+<li>Follow setup according to your desires, but: on Debian, <strong>deselect all apt packages except for "standard system utilities"</strong>. Do NOT install a desktop environment!</li>
+<li>Log in as root using the password you set during installation.</li>
+<li>Run the one-liner up top!</li>
+<li>Once it completes, run reboot and log in normally.</li>
+</ol>
+<p>
+If there are other distros that you use which aren't listed here, and
+you would like to contribute an equivalent package list to save time
+for others, please reach out by emailing postmaster at this domain.
+</p>
+<h3>Other data</h3>
+<p>
+Fumaca 2 is the Openbox window theme in use. SkeuOS (grey, dark) is
+the GTK+ UI theme. Papirus Dark is the icon theme, and Breeze Snow is
+the cursor theme.
+</p>
+<h2>Introduction</h2>
+<p>
+It is helpful to have a curated software environment that provides
+consistent behaviour across space and time. To this end, Alabaster
+Linux is a 'pseudo-distro' that sets up using a suite of scripts on
+top of a clean installation of either Debian 10 (Buster) or CentOS 7.
+</p>
+<h3>Background</h3>
+<p>
+Developing and maintaining Alabaster as a 'proper' Linux distribution
+is more work and has other practical downsides; for example, ISOs
+would have to be made, and specific accomodations would need to be
+made for various architectures. Our approach lets us ignore all of
+that stuff and just set up Debian as it comes, be it on AMD64,
+AArch64, RISC-V, or whatever Debian supports. We only need to make
+sure the software we author works across these support targets, which
+is part of why Alabaster is needed!
+</p>
+<h2>Licencing</h2>
+<p>
+The Alabaster install script from alabaster.sh (this website) is
+licenced under the <a href="https://aquefir.co/asl"
+target="_blank">Artisan Software Licence, version 1.1</a>. The
+contents it installs are licenced under their respective licences;
+consult the contents of the installation script to find out which
+projects are brought in and what their licences are.
+</p>
+</body>
+</html>

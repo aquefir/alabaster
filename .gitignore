@@ -1,8 +1,13 @@
 
 # build output
 /alabaster.sh
+/cli.alabaster.sh
+/gui.alabaster.sh
 
 *.tar*
+*.lz
+*.gz
+*.part
 
 # Compiled Python files
 *.pyc
