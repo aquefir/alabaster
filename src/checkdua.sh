@@ -30,4 +30,6 @@ else
 /bin/echo 'Thank you for choosing Alabaster!';
 /bin/echo '';
 
+exit 0;
+
 fi
