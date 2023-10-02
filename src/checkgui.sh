@@ -9,8 +9,11 @@ exit 127;
 elif uname -a | grep -q ' Debian '; then
 
 if lsb_release -d | grep -q '(buster)'; then
+: # pass
 elif lsb_release -d | grep -q '(bullseye)'; then
+: # pass
 elif lsb_release -d | grep -q '(bookworm)'; then
+: # pass
 else
 
 /bin/echo 'Your version of Debian is either too old or too new.';

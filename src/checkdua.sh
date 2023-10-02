@@ -1,6 +1,6 @@
 if uname -a | grep -q '.el'; then
 
-# pass. initrhel shows up later to execute unconditionally
+: # pass. initrhel shows up later to execute unconditionally
 
 else
 

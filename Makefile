@@ -42,6 +42,7 @@ clean:
 	$(RM) cli.alabaster.sh
 	$(RM) gui.alabaster.sh
 	$(RM) src/*.part
+	$(RM) src/*.tar*
 
 alabaster.sh: src/preamble.sh src/checkdua.sh src/initrhel.sh src/sudo-nopasswd.conf.part src/lzlib.part src/plzip.part src/tarlz.part src/getdots.part src/undots.part src/post.sh
 cli.alabaster.sh: src/preamble.sh src/checkcli.sh src/initrhel.sh src/sudo-nopasswd.conf.part src/lzlib.part src/plzip.part src/tarlz.part src/getdots.part src/undots.part src/post.sh

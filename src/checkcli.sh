@@ -2,13 +2,16 @@
 # RHEL
 if uname -a | grep -q '.el'; then
 
-# pass. initrhel shows up later to execute unconditionally
+: # pass. initrhel shows up later to execute unconditionally
 
 elif uname -a | grep -q ' Debian '; then
 
 if lsb_release -d | grep -q '(buster)'; then
+: # pass
 elif lsb_release -d | grep -q '(bullseye)'; then
+: # pass
 elif lsb_release -d | grep -q '(bookworm)'; then
+: # pass
 else
 
 /bin/echo 'Your version of Debian is either too old or too new.';

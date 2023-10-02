@@ -3,8 +3,11 @@ if uname -a | grep -q '.el'; then
 
 # It is RHEL, but is it the right version?
 if uname -a | grep -q '.el7.'; then
+: # pass
 elif uname -a | grep -q '.el8.'; then
+: # pass
 elif uname -a | grep -q '.el9.'; then
+: # pass
 else
 
 /bin/echo 'Your version of RHEL is either too old or too new.';
