@@ -44,9 +44,9 @@ clean:
 	$(RM) src/*.part
 	$(RM) src/*.tar*
 
-alabaster.sh: src/preamble.sh src/checkdua.sh src/initrhel.sh src/sudo-nopasswd.conf.part src/lzlib.part src/plzip.part src/tarlz.part src/getdots.part src/undots.part src/post.sh
-cli.alabaster.sh: src/preamble.sh src/checkcli.sh src/initrhel.sh src/sudo-nopasswd.conf.part src/lzlib.part src/plzip.part src/tarlz.part src/getdots.part src/undots.part src/post.sh
-gui.alabaster.sh: src/preamble.sh src/checkgui.sh src/sudo-nopasswd.conf.part src/lzlib.part src/plzip.part src/tarlz.part src/mkdirs.sh src/getdots.part src/default.png.part src/scite.conf.part src/uca.xml.part src/menu.xml.part src/rc.xml.part src/fdorg.xml.part src/gtk.ini.part src/profiles.ini.part src/term.conf.part src/tint2.conf.part src/index.theme.part src/ldmgreet.conf.part src/lightdm.conf.part src/autostart.conf.part src/user-dirs.conf.part src/getarcs.part src/fumaca2.part src/palemoon.part src/undots.part src/unarcs.part src/postgui.sh src/post.sh
+alabaster.sh: src/preamble.sh src/checkdua.sh src/lzlib.part src/plzip.part src/tarlz.part src/initrhel.sh src/sudo-nopasswd.conf.part src/getdots.part src/undots.part src/post.sh
+cli.alabaster.sh: src/preamble.sh src/checkcli.sh src/initrhel.sh src/lzlib.part src/plzip.part src/tarlz.part src/sudo-nopasswd.conf.part src/getdots.part src/undots.part src/post.sh
+gui.alabaster.sh: src/preamble.sh src/checkgui.sh src/lzlib.part src/plzip.part src/tarlz.part src/sudo-nopasswd.conf.part src/mkdirs.sh src/getdots.part src/default.png.part src/scite.conf.part src/uca.xml.part src/menu.xml.part src/rc.xml.part src/fdorg.xml.part src/gtk.ini.part src/profiles.ini.part src/term.conf.part src/tint2.conf.part src/index.theme.part src/ldmgreet.conf.part src/lightdm.conf.part src/autostart.conf.part src/user-dirs.conf.part src/getarcs.part src/fumaca2.part src/palemoon.part src/undots.part src/unarcs.part src/postgui.sh src/post.sh
 
 alabaster.sh cli.alabaster.sh gui.alabaster.sh:
 	cat $+ > $@;
