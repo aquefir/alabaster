@@ -141,6 +141,7 @@ src/unarcs.part:
 	util/mkunzip.py 'Source Code Pro' /tmp/source-code-pro.zip /usr/local/share/fonts/alabaster/ >> $@;
 	util/mkunzip.py 'Source Han Sans' /tmp/source-han-sans.zip /usr/local/share/fonts/alabaster/ >> $@;
 	util/mkunzip.py 'Source Han Serif' /tmp/source-han-serif.zip /usr/local/share/fonts/alabaster/ >> $@;
+	util/mkunzip.py 'Breeze Snow cursor theme' /tmp/breeze-snow.zip /usr/share/icons >> $@;
 	util/mkuntar.py 'SkeuOS GTK+ theme' /tmp/skeuos.tar.gz /tmp >> $@;
 	util/mkuntar.py 'Papirus icon theme' /tmp/papirus-icon-theme.tar.gz /usr/share/icons >> $@;
 
