@@ -52,7 +52,7 @@ alabaster.sh cli.alabaster.sh gui.alabaster.sh:
 	cat $+ > $@;
 
 src/default.png.part: src/default.png
-	util/mkmbed.sh $< /usr/local/share/wallpapers/default.png $@
+	util/mkmbed.sh $< /usr/share/wallpapers/default.png $@
 
 src/scite.conf.part: src/scite.conf
 	util/mkmbed.sh $< /usr/share/scite/SciTEGlobal.properties $@
