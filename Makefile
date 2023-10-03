@@ -70,7 +70,7 @@ src/fdorg.xml.part: src/fdorg.xml
 	util/mkmbed.sh $< /usr/share/mime/packages/freedesktop.org.xml $@
 
 src/gtk.ini.part: src/gtk.ini
-	util/mkmbed.sh $< /etc/gtk-2.0/gtk.ini $@
+	util/mkmbed.sh $< /etc/gtk-2.0/settings.ini $@
 
 src/profiles.ini.part: src/profiles.ini
 	util/mkmbed.sh $< '/etc/skel/.moonchild productions/pale moon/profiles.ini' $@
