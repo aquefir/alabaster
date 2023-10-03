@@ -11,3 +11,4 @@ mv /usr/share/icons/papirus-repo/Papirus /usr/share/icons/papirus;
 rm -rf /usr/share/icons/papirus-repo;
 cp /etc/gtk-2.0/settings.ini /etc/gtk-3.0/settings.ini
 cp /etc/gtk-2.0/settings.ini /etc/skel/.config/gtk-3.0/settings.ini
+update-mime-database /usr/share/mime;
