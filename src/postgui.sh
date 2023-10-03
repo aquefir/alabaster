@@ -8,4 +8,4 @@ mv /usr/share/icons/Breeze_Snow /usr/share/icons/breeze-snow;
 mv /usr/share/icons/papirus-* /usr/share/icons/papirus-repo;
 test -d /usr/share/icons/papirus && rm -rf /usr/share/icons/papirus;
 mv /usr/share/icons/papirus-repo/Papirus papirus;
-rm -rf papirus-repo;
+rm -rf /usr/share/icons/papirus-repo;
