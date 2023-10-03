@@ -154,7 +154,7 @@ src/fumaca2.part: src/fumaca2.tar.lz
 src/palemoon.part: src/palemoon.tar.lz
 
 src/fumaca2.part:
-	/bin/echo "/bin/echo " > $@
+	/bin/echo "echo " > $@
 	base64 $< | sed -z 's/\n//g' >> $@
 	/bin/echo " | base64 -d | plzip -cd - | tar -xf - -C /usr/share/themes;" >> $@;
 
