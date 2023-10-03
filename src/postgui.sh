@@ -7,7 +7,7 @@ test -d /usr/share/icons/breeze-snow && rm -rf /usr/share/icons/breeze-snow;
 mv /usr/share/icons/Breeze_Snow /usr/share/icons/breeze-snow;
 mv /usr/share/icons/papirus-* /usr/share/icons/papirus-repo;
 test -d /usr/share/icons/papirus && rm -rf /usr/share/icons/papirus;
-mv /usr/share/icons/papirus-repo/Papirus papirus;
+mv /usr/share/icons/papirus-repo/Papirus /usr/share/icons/papirus;
 rm -rf /usr/share/icons/papirus-repo;
 cp /etc/gtk-2.0/settings.ini /etc/gtk-3.0/settings.ini
-cp -r /etc/gtk-3.0 /etc/skel/.config/
+cp /etc/gtk-2.0/settings.ini /etc/skel/.config/gtk-3.0/settings.ini
