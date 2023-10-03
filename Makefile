@@ -121,6 +121,7 @@ src/undots.part:
 	/bin/echo 'mv /tmp/dotfiles-* /tmp/dotfiles-repo;' >> $@;
 	/bin/echo 'sh /tmp/dotfiles-repo/util/tarball.sh /tmp/dotfiles-repo/src /tmp/out.tar;' >> $@;
 	/bin/echo 'tar -xf /tmp/out.tar -C /etc/skel;' >> $@;
+	/bin/echo 'rm -rf /tmp/dotfiles-repo;' >> $@;
 
 src/getarcs.part:
 	/bin/echo '' > $@;
