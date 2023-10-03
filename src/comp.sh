@@ -7,7 +7,7 @@ plzip -cd '{{1}}.tar.lz' | tar -xf -;
 else
 tar -xf '{{1}}.tar.{{3}}';
 fi
-cd '{{1}}-*' || exit 127;
+cd '{{1}}'-* || exit 127;
 /bin/echo 'done.';
 stdbuf -o0 /bin/echo -n 'Configuring the build with autotools... ';
 ./configure CFLAGS='-march=native -mtune=native -O3 -pipe' \
