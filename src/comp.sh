@@ -22,5 +22,5 @@ make install 1>/dev/null 2>&1;
 /bin/echo 'done.';
 stdbuf -o0 /bin/echo -n 'Cleaning up... ';
 cd .. || exit 127;
-rm -rf '{{1}}.tar.gz' '{{1}}-*';
+rm -rf '{{1}}.tar.{{3}}' '{{1}}'-*;
 /bin/echo 'done.';
