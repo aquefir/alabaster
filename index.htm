@@ -53,25 +53,13 @@ version apparently does not follow redirects.
 <li>Run the one-liner up top!</li>
 <li>Once it completes, run reboot and log in normally.</li>
 </ol>
-<p>
-If there are other distros that you use which aren't listed here, and
-you would like to contribute an equivalent package list to save time
-for others, please reach out by emailing postmaster at this domain.
-</p>
-<h3>Other data</h3>
-<p>
-Fumaca 2 is the Openbox window theme in use. SkeuOS (grey, dark) is
-the GTK+ UI theme. Papirus Dark is the icon theme, and Breeze Snow is
-the cursor theme.
-</p>
-<h2>Introduction</h2>
+<h3>Why?</h3>
 <p>
 It is helpful to have a curated software environment that provides
 consistent behaviour across space and time. To this end, Alabaster
 Linux is a 'pseudo-distro' that sets up using a suite of scripts on
 top of a clean installation of either Debian 10 (Buster) or CentOS 7.
 </p>
-<h3>Background</h3>
 <p>
 Developing and maintaining Alabaster as a 'proper' Linux distribution
 is more work and has other practical downsides; for example, ISOs
@@ -82,14 +70,35 @@ AArch64, RISC-V, or whatever Debian supports. We only need to make
 sure the software we author works across these support targets, which
 is part of why Alabaster is needed!
 </p>
+<h2>Further information</h2>
+<p>
+If there are other distros that you use which aren't listed here, and
+you would like to contribute an equivalent package list to save time
+for others, please reach out by emailing postmaster at this domain.
+</p>
+<p>
+Fumaca 2 is the Openbox window theme in use. SkeuOS (grey, dark) is
+the GTK+ UI theme. Papirus Dark is the icon theme, and Breeze Snow is
+the cursor theme.
+</p>
+<p>
+Originally, Alabaster only targeted Debian 10 (buster) and CentOS 7,
+but has since added support for Debian 11 (bullseye) and 12 (bookworm),
+Rocky Linux and AlmaLinux versions 8 and 9 (community continuations of
+CentOS), and Arch Linux in rolling release. It also began with Debian
+being fixed to GUI distribution and CentOS to CLI distribution, however
+this is now user-selectable – you can choose either GUI or CLI for
+Debian and Arch Linux based setups (RHEL-based is still CLI only).
+</p>
 <h2>Licencing</h2>
 <p>
 The Alabaster install script from alabaster.sh (this website) is
 licenced under the <a href="https://aquefir.co/asl"
 target="_blank">Artisan Software Licence, version 1.1</a>. The
 contents it installs are licenced under their respective licences;
-consult the contents of the installation script to find out which
-projects are brought in and what their licences are.
+consult the contents of the installation script and the source code
+repository to find out which projects are brought in and what their
+licences are.
 </p>
 </body>
 </html>
